@@ -1,13 +1,15 @@
 /*global define*/
 define([
+        'Core/defaultValue',
         'Core/RuntimeError'
     ], function(
+        defaultValue,
         RuntimeError) {
     "use strict";
 
     function createCanvas(width, height) {
-        width = (typeof width === 'undefined') ? 1 : width;
-        height = (typeof height === 'undefined') ? 1 : height;
+        width = defaultValue(width, 1);
+        height = defaultValue(height, 1);
 
         var canvas = document.createElement('canvas');
         canvas.setAttribute('width', width);
